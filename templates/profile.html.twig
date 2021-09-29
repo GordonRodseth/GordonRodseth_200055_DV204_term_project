@@ -1,0 +1,17 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Profile Page {% endblock %}
+
+{% block body %}
+<div class="row">
+    <div class="col-12"><p>Welcome Back <b>{{user.name}}</b><p></div>
+    <br> 
+    <div class="col-12"><h3>Post History:</h3>
+        <ul>
+        {% for post in user.posts %}
+            <h4><li>{{post}}</li></h4>
+        {% endfor %}
+    </ul></div>
+</div>
+
+{% endblock %}

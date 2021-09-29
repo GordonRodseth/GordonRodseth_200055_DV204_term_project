@@ -15,7 +15,7 @@
         {
 
             return new Response(
-                '<html><body><h1>Hello World</h1></body></html>'
+                '<html><body><h1>Welcome to The Hive. Please sign in or make a new account</h1></body></html>'
             );
         }
     }
