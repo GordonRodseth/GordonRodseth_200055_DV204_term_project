@@ -3,15 +3,29 @@
 {% block title %}Profile Page {% endblock %}
 
 {% block body %}
-<div class="row">
-    <div class="col-12"><p>Welcome Back <b>{{user.name}}</b><p></div>
-    <br> 
-    <div class="col-12"><h3>Post History:</h3>
-        <ul>
-        {% for post in user.posts %}
-            <h4><li>{{post}}</li></h4>
-        {% endfor %}
-    </ul></div>
+<div class="row col-12">
+    <div class="col-6">
+    <h2>Your Profile</h2>
+    <div class="infoblock">
+        <li class="userinfo">UserName: <b>{{user.username}}</b></li>
+        <li class="userinfo">Reputation: <b>{{user.reputation}}</b></li>
+        <li class="userinfo">Email: <b>{{user.email}}</b></li>
+        <button class="updateButton">Update</button>
+    </div>
+    </div>
+
+    <div class="col-6"></div>
+    <div class="col-6"></div>
+
+    <div class="col-6" style="margin-top:15%"><h3>Top Post:</h3>
+        <div class="post">
+            {% for post in user.posthistory %}
+                <b>{{post.title}}</b>
+                <p class="post-content">{{post.content}}</p>
+            {% endfor %}
+        </div>
+        
+    </div>
 </div>
 
 {% endblock %}

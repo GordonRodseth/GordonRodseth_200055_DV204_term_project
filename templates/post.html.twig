@@ -1,0 +1,32 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Post{% endblock %}
+
+{% block body %}
+<div class="row">
+    <div class="col-12"><h2>{{post.title}}</h2>
+    <p><i>{{post.parent.username}}</i></p>
+    <div class="post" style="margin-top:1%">
+        <p>{{post.content}}</p>
+    </div>
+    <div class="comments">
+    <div class="makecomment"><a href="/makecomment">Comment</a></div>
+    {% for comment in post.comments %}
+        <p><i><b>{{comment.poster.username}}: </b></i>{{comment.content}}<br>
+            <div class="makecomment"><a href="/makecomment">Comment</a></div>
+        
+            {% for childcomment in comment.childcomments  %}
+                <div class="reply">
+                    <p><i><b>{{childcomment.poster.username}}</b> replying to <b>{{comment.poster.username}}: </b></i>{{childcomment.content}}</p>
+                    <div class="makecomment"><a href="/makecomment">Comment</a></div>
+                </div>
+            {% endfor %}
+        
+        </p>
+    {% endfor %}
+    </div>
+    </div>
+    
+</div>
+
+{% endblock %}

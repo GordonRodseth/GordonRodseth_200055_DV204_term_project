@@ -1,0 +1,14 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Admin Page{% endblock %}
+
+{% block body %}
+<div class="row">
+    <div class="col-12"><h3>Users:</h3>
+        {% for user in users %}
+            <li class="col-4" style="margin-top:1%">{{user.username}} <button style='background-color:red; color:white; border:none; border-radius:25px; float:right'>Ban</button></li>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

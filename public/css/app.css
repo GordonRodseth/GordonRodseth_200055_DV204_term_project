@@ -1,0 +1,109 @@
+
+body{
+    font-family: 'Roboto', sans-serif;
+}
+
+a{
+    color: black;
+}
+
+a:hover{
+    font-weight: bold;
+    color:black;
+    text-decoration: none;
+}
+.navbar{
+    background-color: #FFE902;
+    box-shadow:0px 5px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2%;
+}
+
+#signUpDetail{
+    margin-top:5%;
+    width:100%;
+    font-size: small;
+    padding: 1%;
+    border:none;
+}
+
+#signUpButton{
+    margin-left:25%;
+    margin-right: 25%;
+    width:50%;
+    border:solid;
+    border-color: black;
+    border-width: 1px;
+    margin-top:10%;
+}
+.updateButton{
+    margin-left:25%;
+    margin-right: 25%;
+    width:50%;
+    background-color: white;
+    border:solid;
+    border-color: black;
+    border-width: 1px;
+    margin-top:5%;
+    margin-bottom: 5%;
+}
+#signUpForm{
+    padding: 10%;
+    border-radius:15px;
+    background-color: #F2C94C;
+    box-shadow:0px 5px 5px rgba(0, 0, 0, 0.1);
+}
+
+.post{
+    background-color: #F2C94C;
+    padding: 2%;
+    margin-top: 3%;
+    border-radius:15px;
+}
+.post-content{
+    background-color: #fdec2e;
+    padding:2%;
+    margin-top: 2%;
+    border-radius:5px;
+    box-shadow:2px 2px 2px inset rgba(0, 0, 0, 0.1);
+
+}
+.comments{
+    background-color: #fdec2e;
+    margin-left: 5%;
+    padding:2%;
+    margin-top: 2%;
+    border-radius:5px;
+    box-shadow:2px 2px 2px inset rgba(0, 0, 0, 0.1);
+}
+.reply{
+    background-color: #F2C94C;
+    padding: 1%;
+    margin-left: 5%;
+    border-radius:5px;
+    box-shadow:2px 2px 2px inset rgba(0, 0, 0, 0.1);
+}
+.infoblock{
+    background-color: #F2C94C;
+    padding: 1%;
+    margin-top:3%;
+    border-radius:15px;
+    box-shadow:0px 5px 5px rgba(0, 0, 0, 0.1);
+}
+.userinfo{
+    margin:3%;
+    padding:2%;
+    border-radius:5px;
+    background-color: #fdee43;
+    box-shadow:2px 2px 2px inset rgba(0, 0, 0, 0.1);
+}
+
+.profpic{
+    border-radius: 50%;
+    background-color: #fdee43;
+    width: 100px;
+    height:100px;
+}
+.makepost{
+    width: 100px;
+    height:100px;
+}
