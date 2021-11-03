@@ -60,5 +60,35 @@
 
             return $this->render($view,$model);
         }
+
+        /** 
+         * @Route("/delete", name="delete")
+         */
+        public function delete(Request $request)
+        {
+            //if it is a POST
+            if($request->isXmlHttpRequest()) { //if we are receiving a HTTP request
+                //get the POST data - id
+                $postId = $_POST['id'];
+
+                $entityManager = $this->getDoctrine()->getManager();
+                //get the mood that was liked
+                $post = $entityManager->getRepository(Post::class)->find($postId);
+                //check if vote count is null with getter
+                
+
+                //$post->removeDownvote($post->getDownvotes());
+                //$post->removeUpvote($post->getUpvotes());
+                //$post->removeComment($post->getComments());
+                $entityManager->remove($post);
+
+                //$entityManager->persist($post);
+
+                $entityManager->flush();
+
+                return $this->redirectToRoute('profile');
+
+            }
+        }
     }
 ?>

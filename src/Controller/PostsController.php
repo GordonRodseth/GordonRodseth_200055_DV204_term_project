@@ -26,7 +26,9 @@
                     ->getRepository(Post::class)
                     ->findAll();
                     
-
+            usort($posts, function($a, $b) {
+                return $b->getVotes() <=> $a->getVotes();
+            });
             $model=array('posts' => $posts);
             $view='home.html.twig';
 

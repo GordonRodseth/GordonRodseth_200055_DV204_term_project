@@ -27,7 +27,7 @@
                     {% endfor %}
                     +margin-top:1%; height:5vh">
                     {{user.username}} 
-                    <div id="ban"class="material-icons-outlined btn" data-id="{{user.id}}">lock</div>
+                    <div id="ban"class="material-icons-outlined btn ban" data-id="{{user.id}}">lock</div>
                 </div>
             {% endfor %}
         </div>
@@ -38,7 +38,7 @@
             {% for ban in banned %}
                 <div class="col-10 user-banned" style="margin-top:1%; height:5vh">
                     {{ban.username}} 
-                    <div id="unban"class="material-icons-outlined btn" data-id="{{ban.id}}">lock_open</div>
+                    <div id="unban"class="material-icons-outlined btn unban" data-id="{{ban.id}}">lock_open</div>
                 </div>
             {% endfor %}
         </div>

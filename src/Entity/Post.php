@@ -50,11 +50,13 @@ class Post
 
     /**
      * @ORM\OneToMany(targetEntity=Upvotes::class, mappedBy="Post", orphanRemoval=true)
+     * @ORM\JoinColumn(onDelete="CASCADE")
      */
     private $upvotes;
 
     /**
      * @ORM\OneToMany(targetEntity=Downvote::class, mappedBy="post", orphanRemoval=true)
+     * @ORM\JoinColumn(onDelete="CASCADE")
      */
     private $downvotes;
 

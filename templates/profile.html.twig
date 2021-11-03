@@ -38,8 +38,10 @@
                     <b>{{post.title}}</b>
                     <p class="post-content">{{post.content}}</p>
                 </div>
+                <div id="delete" class="material-icons-outlined btn delete" data-id="{{ post.id }}">delete</div>
                 {% endfor %}
-            {% else %}
+            {% endif %}
+            {% if not user.posts %}
             <div class="post">
                 <b>You haven't made any posts yet</b>
             </div>

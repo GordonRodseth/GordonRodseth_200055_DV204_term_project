@@ -41,8 +41,8 @@
                             {% endif %}
                         {% endfor %}
                         {% if not voted %}
-                        <div id="upvote" class="material-icons-outlined btn" data-id="{{ post.id }}">expand_less</div>
-                        <div id="downvote" class="material-icons-outlined btn" data-id="{{ post.id }}">expand_more</div>
+                        <div id="upvote" class="material-icons-outlined btn upvote" data-id="{{ post.id }}">expand_less</div>
+                        <div id="downvote" class="material-icons-outlined btn downvote" data-id="{{ post.id }}">expand_more</div>
                         {% endif %}
                     {% endif %}
                         <div id="votecount" style="position:absolute; bottom:50%">{{post.votes}}</div>

@@ -1,7 +1,7 @@
 $(document).ready(function(){
     
     //onclick like function
-    $("#ban").on("click", function(){
+    $(".ban").on("click", function(){
         //get the current count set in the p tag of the div as a integer
         //var currentCount = parseInt($(this).children("p").text()); 
         //get the id of the mood that was clicked on with the data attr
@@ -25,7 +25,7 @@ $(document).ready(function(){
     
     });
 
-    $("#unban").on("click", function(){
+    $(".unban").on("click", function(){
         //get the current count set in the p tag of the div as a integer
         //var currentCount = parseInt($(this).children("p").text()); 
         //get the id of the mood that was clicked on with the data attr
