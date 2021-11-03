@@ -4,7 +4,7 @@ namespace App\Tests;
 
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
-use App\Entity\UserProfile;
+use App\Entity\User;
 
 class UserTest extends KernelTestCase
 {
@@ -26,10 +26,10 @@ class UserTest extends KernelTestCase
     //test if our entity adds a user to the db successfully
     public function testUserCreation(): void
     {
-        $userProfile = new UserProfile();
+        $userProfile = new User();
 
-        $userProfile->setUsername("test user");
-        $userProfile->setEmail("test@test.com");
+        $userProfile->setUsername("test_user2");
+        $userProfile->setEmail("test2@email.com");
         $userProfile->setPassword("123456");
 
         //TODO: Assert to ensure the email doesn't already exist
@@ -52,13 +52,15 @@ class UserTest extends KernelTestCase
     public function testSearchByEmail(): void
     {
         $userProfile = $this->entityManager
-                        ->getRepository(UserProfile::class)
-                        ->findOneBy(['email' => "test@test.com"]);
+                        ->getRepository(User::class)
+                        ->findOneBy(['email' => "test2@email.com"]);
 
         //assert if the values are correct
-        $this->assertEquals("test@test.com", $userProfile->getEmail());
-        $this->assertEquals("test user", $userProfile->getUsername());
+        $this->assertEquals("test2@email.com", $userProfile->getEmail());
+        $this->assertEquals("test_user2", $userProfile->getUsername());
         $this->assertSame("123456", $userProfile->getPassword());
+
+        $this->entityManager->remove($userProfile);
 
     }
 
@@ -69,4 +71,5 @@ class UserTest extends KernelTestCase
         $this->entityManager->close();
         $this->entityManager = null;
     }
+    
 }
