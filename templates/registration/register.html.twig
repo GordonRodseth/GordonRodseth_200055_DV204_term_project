@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    <div class="row col-12">
+        <div class="col-3"></div>
+
+        <div class="row col-6">
+            <h1 class="col-6" style="color:white; font-size:xx-large"><span id="bee" class="material-icons-outlined" style="color:white">hive</span>Register</h1>
+            <div class="col-6"></div>
+
+            <div class="col-3"></div>
+            <div class="col-8">
+            {{ form_start(registrationForm) }}
+                {{ form_row(registrationForm.email, {label:'Email'}) }}
+                {{ form_row(registrationForm.username, {label:'Username'}) }}
+                {{ form_row(registrationForm.plainPassword, {
+                    label: 'Password'
+                }) }}
+                {{ form_row(registrationForm.agreeTerms) }}
+
+                <button id="button" class="row" style="color:#fdec2e; margin-top:5%; float:right" type="submit">
+                    <span class="material-icons-outlined col-4" style="color:#fdec2e; font-size:xx-large;">hexagon</span>
+                    <div class="col-8">Register</div>
+                </button>
+            {{ form_end(registrationForm) }}
+            </div>
+        </div>
+
+        
+        <div class="col-3"></div>
+    </div>
+{% endblock %}
+
+

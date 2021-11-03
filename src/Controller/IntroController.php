@@ -14,9 +14,7 @@
         public function helloWorld()
         {
 
-            return new Response(
-                '<html><body><h1>Please <a href="/posts">Log In</a> or <a href="/signup">Sign Up</a></h1></body></html>'
-            );
+            return $this->redirectToRoute('posts');
         }
     }
 ?>

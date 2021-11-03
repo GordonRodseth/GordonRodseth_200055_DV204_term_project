@@ -5,27 +5,55 @@
 {% block body %}
 <div class="row col-12">
     <div class="col-2">
-        <div class="profpic"></div>
-        <div class="makepost"><a href="/newpost">Make Post</a></div>
+        <div class="makepost" style="margin-left: 10%"><a href="/newpost"><span id="newpost" style="font-size:70px"class="material-icons-outlined">post_add</span>New Post</a></div>
     </div>
-    <div class="col-8 row"><h2>Top Posts:</h2>
+    <div class="col-8 row"><h2 style="color:white">Top Posts:</h2>
         
         {% for post in posts %}
-            <div class="postblock row col-12">
-                <div class="col-2">
-                    <div class="profpic"></div>
+            <div class="postblock row col-12" style="position:relative">
+                <div class="col-3">
+                    {% if post.poster.profpic %}
+                        <img class="avatar" src="../uploads/pics/{{post.poster.profpic.picture}}" alt="profilepicture">
+                    {% endif %}
+                    {% if not post.poster.profpic %}
+                        <img class="avatar" src="../uploads/pics/user.png" alt="profilepicture">
+                    {% endif %}
                 </div>
-                <div class="post col-10">
+                <div class="post col-8">
                     <h3><a href="/post/{{post.id}}">{{post.title}}</a></h3>
-                    <li>{{post.parent.username}}
+                    <li>{{post.poster.username}}
                     <p class="post-content">{{post.content}}<p>
-                    <div class="makecomment"><a href="/makecomment">Comment</a></div>
+                    <div class="makecomment"><a href="/makecomment/{{post.id}}"><span id="chatbubble"class="material-icons-outlined">chat_bubble_outline</span></a></div>
+                </div>
+                <div class="col-1">
+                    
+                    <div class="votes" style="margin-top:25%">
+                    {% if app.user %}
+                        {% set voted = 0 %}
+                        {% for upvote in post.upvotes %}
+                            {% if upvote.user.username == app.user.username %}
+                                {% set voted = 1 %}
+                            {% endif %}
+                        {% endfor %}
+                        {% for downvote in post.downvotes %}
+                            {% if downvote.user.username == app.user.username %}
+                                {% set voted = 1 %}
+                            {% endif %}
+                        {% endfor %}
+                        {% if not voted %}
+                        <div id="upvote" class="material-icons-outlined btn" data-id="{{ post.id }}">expand_less</div>
+                        <div id="downvote" class="material-icons-outlined btn" data-id="{{ post.id }}">expand_more</div>
+                        {% endif %}
+                    {% endif %}
+                        <div id="votecount" style="position:absolute; bottom:50%">{{post.votes}}</div>
+                    </div>
+                    
                 </div>
             </div>
         {% endfor %}
         
     </div>
-    <div class="col-2"></div>
+    <div class="col-1"></div>
 </div>
 
 {% endblock %}

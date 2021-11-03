@@ -3,11 +3,53 @@
 {% block title %}Admin Page{% endblock %}
 
 {% block body %}
-<div class="row">
-    <div class="col-12"><h3>Users:</h3>
-        {% for user in users %}
-            <li class="col-4" style="margin-top:1%">{{user.username}} <button style='background-color:red; color:white; border:none; border-radius:25px; float:right'>Ban</button></li>
-        {% endfor %}
+<div class="row col-12">
+    <div class="col-2"></div>
+    <div class="row col-8">
+        <div class="admin-table row col-3">
+            <h3 style="color:white" class="col-12">Admins:</h3>
+            {% for admin in admins %}
+                <div class="col-12 admin" style="margin-top:1%; height:5vh">
+                    {{admin.username}} 
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="col-1"></div>
+        <div class="user-table row col-3">
+            <h3 style="color:white" class="col-12">Users:</h3>
+            {% for user in users %}
+                <div class="col-12 user" style="+                    
+                {% for role in user.roles %}
+                        {% if ((role == "ROLE_ADMIN") or (role == "ROLE_BANNED")) %}
+                            ; display:none;
+                        {% endif %}
+                    {% endfor %}
+                    +margin-top:1%; height:5vh">
+                    {{user.username}} 
+                    <div id="ban"class="material-icons-outlined btn" data-id="{{user.id}}">lock</div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="col-1"></div>
+        <div class="banned-table row col-3">
+            <h3 style="color:white" class="col-12">Banned Users:</h3>
+            {% for ban in banned %}
+                <div class="col-10 user-banned" style="margin-top:1%; height:5vh">
+                    {{ban.username}} 
+                    <div id="unban"class="material-icons-outlined btn" data-id="{{ban.id}}">lock_open</div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="col-1"></div>
+
+        <div class="col-2"></div>
+        <div class="col-6">
+
+        </div>
+        </div>
+        <div class="col-2"></div>
     </div>
 </div>
 

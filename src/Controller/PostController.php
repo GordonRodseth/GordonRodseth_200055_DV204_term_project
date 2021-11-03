@@ -5,9 +5,10 @@
     use Symfony\Component\HttpFoundation\Request;
     use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
     use Symfony\Component\Routing\Annotation\Route;
+    use Symfony\Component\Security\Core\User\UserInterface;
 
-    use App\Entity\App\Entity\Post;
-    use App\Entity\App\Entity\UserProfile;
+    use App\Entity\Post;
+    use App\Entity\User;
     use App\Form\PostType;
     //controller class HomeController
     class PostController extends AbstractController
@@ -16,7 +17,7 @@
          * @Route("/post/{id}", name="post")
          */
         //method that will respond with HTML
-        public function viewPosts($id=null)
+        public function viewPosts($id=null, UserInterface $user)
         {
 
             $postId=(int) $id;
@@ -25,7 +26,7 @@
                     ->find($postId);
                     
 
-            $model=array('post' => $post);
+            $model=array('post' => $post, 'user'=>$user);
             $view='post.html.twig';
 
             return $this -> render ($view, $model);
@@ -35,7 +36,7 @@
          * @Route("/newpost", name="newpost")
          */
         //method that will respond with HTML
-        public function newPost(Request $request)
+        public function newPost(UserInterface $user, Request $request)
         {
             $Post=new Post();
             $form=$this->createForm(PostType::class,$Post);
@@ -43,11 +44,8 @@
 
             if($form->isSubmitted() && $form->isValid()){
                 $Post = $form->getData();
-                $Post->setParent(            
-                    $UserProfile=$this->getDoctrine()
-                    ->getRepository(UserProfile::class)
-                    ->find('1'));
-                
+                $Post->setPoster($user);
+                $Post->setVotes(0);
                 $entityManager=$this->getDoctrine()->getManager();
                 $entityManager->persist($Post);
                 
@@ -57,7 +55,7 @@
 
             }
 
-            $view='signup.html.twig';
+            $view='makepost.html.twig';
             $model=array('form'=>$form->createView());
 
             return $this->render($view,$model);

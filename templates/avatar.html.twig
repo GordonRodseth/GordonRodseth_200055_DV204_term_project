@@ -1,0 +1,13 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Add a profile picture{% endblock %}
+
+{% block body %}
+        {{ form_start(form) }} {# opening the form#}
+
+           {{form_widget(form.pic, { 'attr': {'class': 'form-control', 'placeholder': 'New Profile Picture', 'style': 'margin: 10px'} }) }}
+
+           {{form_widget(form.submit, { 'attr': {'class': 'btn'} }) }}
+
+        {{ form_end(form) }} {# closing the form #}
+{% endblock %}

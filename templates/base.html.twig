@@ -13,27 +13,55 @@
             <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
             <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 
-            <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Round">
+            <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined">
     
         {% endblock %}
     </head>
     
+    {% if is_granted('ROLE_BANNED') %}
+        <body>Banned</body>
+    {% endif %}
+    {% if not is_granted('ROLE_BANNED') %}
     <body>
+
         <nav class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container-fluid">
-                <div class="navbar-header" style="width:100%">
+                <div class="navbar-header" style="width:100%; height:9vh">
                     <a class="navbar-brand" href="/posts">
-                        The Hive
+                        <span id="bee"class="material-icons-outlined">hive</span>
+                        <p style="font-size:x-large; font-weight:bold; margin-left:70px; margin-top:-35%; opacity:85%">The Hive</p>
                     </a>
-                    <a class="navbar-brand" href="/admin" style="float:right; margin-right:2%">
-                        Admin
+                    {% if is_granted('ROLE_USER') %}
+                    <a class="navbar-brand" href="/logout" style="float:right; margin-right:2%; margin-top:1%" >
+                        <span id="myprofile"class="material-icons-outlined">logout</span>
                     </a>
-                    <a class="navbar-brand" href="/profile/1" style="float:right; margin-right:2%">
-                        My Profile
+                    {% endif %}
+
+                    {% if not is_granted('ROLE_USER') %}
+                    <a class="navbar-brand" href="/login" style="float:right; margin-right:2%; margin-top:1%; font-size:x-large" >
+                        <span>Login</span>
                     </a>
+                    {% endif %}
+                    {% if not is_granted('ROLE_USER') %}
+                    <a class="navbar-brand" href="/register" style="float:right; margin-right:2%; margin-top:1%; font-size:x-large" >
+                        <span>Register</span>
+                    </a>
+                    {% endif %}
+
+                    {% if is_granted('ROLE_USER') %}
+                    <a class="navbar-brand" href="/profile" style="float:right; margin-right:2%; margin-top:1%" >
+                        <span id="myprofile"class="material-icons-outlined">account_circle</span>
+                    </a>
+                    {% endif %}
+
+                    {% if is_granted('ROLE_ADMIN') %}
+                    <a class="navbar-brand" href="/admin" style="float:right; margin-right:2%; margin-top:1%" >
+                        <span id="admin"class="material-icons-outlined">badge</span>
+                    </a>
+                    {% endif %}
+
 
                 </div>
-            </div>
+            
         </nav>
         {# the content of the page #}
         <main class="container row col-12" style="width:100%;padding:0;margin:0;">
@@ -49,6 +77,11 @@
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" 
             integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" 
             crossorigin="anonymous"></script>
-        {% block javascripts %}{% endblock %}
+        {% block javascripts %}
+            <script src="../js/likes.js"></script>
+            <script src="../js/ban.js"></script>
+            <script src="../js/star.js"></script>
+        {% endblock %}
     </body>
+    {% endif %}
 </html>

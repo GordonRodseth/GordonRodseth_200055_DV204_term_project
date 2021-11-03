@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Entity\App\Entity;
+namespace App\Entity;
 
 use App\Repository\CommentRepository;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -29,11 +29,7 @@ class Comment
      */
     private $status;
 
-    /**
-     * @ORM\ManyToOne(targetEntity=UserProfile::class, inversedBy="comments")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $poster;
+
 
     /**
      * @ORM\ManyToOne(targetEntity=Post::class, inversedBy="comments")
@@ -50,6 +46,12 @@ class Comment
      * @ORM\OneToMany(targetEntity=Comment::class, mappedBy="parentcomment")
      */
     private $childcomments;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=user::class, inversedBy="comments")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $poster;
 
     public function __construct()
     {
@@ -72,7 +74,7 @@ class Comment
 
         return $this;
     }
-
+ 
     public function getStatus(): ?bool
     {
         return $this->status;
@@ -85,17 +87,6 @@ class Comment
         return $this;
     }
 
-    public function getPoster(): ?UserProfile
-    {
-        return $this->poster;
-    }
-
-    public function setPoster(?UserProfile $poster): self
-    {
-        $this->poster = $poster;
-
-        return $this;
-    }
 
     public function getParentpost(): ?Post
     {
@@ -147,6 +138,18 @@ class Comment
                 $childcomment->setParentcomment(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getPoster(): ?user
+    {
+        return $this->poster;
+    }
+
+    public function setPoster(?user $poster): self
+    {
+        $this->poster = $poster;
 
         return $this;
     }

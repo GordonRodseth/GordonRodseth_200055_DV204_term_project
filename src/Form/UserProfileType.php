@@ -12,10 +12,10 @@
         public function buildForm(FormBuilderInterface $builder, array $options)
         {
             $builder
-            ->add('username',TextType::class)
-            ->add('email',EmailType::class)
+            ->add('username',TextType::class, ['required' => false,])
+            ->add('email',EmailType::class, ['required' => false,])
             ->add('password',PasswordType::class)
-            ->add('submit',SubmitType::class, ['label'=>'Register']);
+            ->add('submit',SubmitType::class, ['label'=>'Enter!']);
             ;
 
         }

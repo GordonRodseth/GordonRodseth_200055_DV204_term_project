@@ -3,30 +3,83 @@
 {% block title %}Post{% endblock %}
 
 {% block body %}
-<div class="row">
-    <div class="col-12"><h2>{{post.title}}</h2>
-    <p><i>{{post.parent.username}}</i></p>
-    <div class="post" style="margin-top:1%">
-        <p>{{post.content}}</p>
-    </div>
-    <div class="comments">
-    <div class="makecomment"><a href="/makecomment">Comment</a></div>
-    {% for comment in post.comments %}
-        <p><i><b>{{comment.poster.username}}: </b></i>{{comment.content}}<br>
-            <div class="makecomment"><a href="/makecomment">Comment</a></div>
-        
-            {% for childcomment in comment.childcomments  %}
-                <div class="reply">
-                    <p><i><b>{{childcomment.poster.username}}</b> replying to <b>{{comment.poster.username}}: </b></i>{{childcomment.content}}</p>
-                    <div class="makecomment"><a href="/makecomment">Comment</a></div>
-                </div>
-            {% endfor %}
-        
-        </p>
-    {% endfor %}
-    </div>
-    </div>
+<div class="row col-12">
+
     
+    <div class="col-2">
+        {% if post.poster.profpic %}
+            <img class="avatar" src="../uploads/pics/{{post.poster.profpic.picture}}" alt="profilepicture">
+        {% endif %}
+        {% if not post.poster.profpic %}
+            <img class="avatar" src="../uploads/pics/user.png" alt="profilepicture">
+        {% endif %}
+    </div>
+    <div class="post row col-9" >
+        <h2 class="col-12" style="color:white">{{post.title}}</h2>
+         <br>
+        <p class="col-12">
+          <i>{{post.poster.username}}</i>
+        </p>
+        <div class="post-content col-12" style="margin-top:.5%">
+            <p>{{post.content}}</p>
+        </div>
+        <div class="row col-12">
+            <div class="makecomment" style="margin-top:1%">
+                <a href="/makecomment/{{post.id}}"><span id="chatbubble"class="material-icons-outlined">chat_bubble_outline</span></a>
+            </div>
+    </div>
+    </div>
+    <div class="col-1"></div>
+    
+
+
+
+    <div class="col-2"></div>
+
+    <div class="row col-9" style="padding:0;margin-top:1%;">
+        
+        <h4 style="color:white" class="col-12" >Comments:</h4>
+            {% for comment in post.comments %}
+                {% if not comment.parentcomment %}
+                
+                <div class="comments col-11">
+                    <i><b>{{comment.poster.username}}: </b></i>
+                    <p style="color:white">{{comment.content}}</p>
+                
+                    <div class="makecomment" ><a href="/makechildcomment/{{comment.id}}"><span id="chatbubble"class="material-icons-outlined">chat_bubble_outline</span></a></div>
+            
+                    {% for childcomment in comment.childcomments  %}
+                        <div class="reply">
+                            <p style="color:white"><i style="color:#fdec2e"><b>{{childcomment.poster.username}}</b> replying to <b>{{comment.poster.username}}: </b></i>{{childcomment.content}}</p>
+                            
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="col-1" id="starcomment">
+                
+                    {% if not comment.status %}
+                        <span style="float:left" class="material-icons-outlined btn"
+                            {% if post.poster == user %}
+                            id="star" data-id="{{comment.id}}"
+                            {% endif %}
+                        >star_outline</span>
+
+                    {% endif %}
+                    {% if comment.status %}
+                        <span style="float:left" class="material-icons-outlined btn"
+                            {% if post.poster == user %}
+                            id="unstar" data-id="{{comment.id}}"
+                            {% endif %}
+                        >star</span>
+                    {% endif %}
+                
+                </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+
+    </div>
+    <div class="col-1"></div>
 </div>
 
 {% endblock %}

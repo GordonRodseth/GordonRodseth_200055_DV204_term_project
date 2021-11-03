@@ -4,28 +4,51 @@
 
 {% block body %}
 <div class="row col-12">
-    <div class="col-6">
-    <h2>Your Profile</h2>
+    <div class="row col-2">
+        {% if user.profpic %}
+            <img class="avatar" src="../uploads/pics/{{user.profpic.picture}}" alt="profilepicture">
+        {% endif %}
+        {% if not user.profpic %}
+            <img class="avatar" src="../uploads/pics/user.png" alt="profilepicture">
+        {% endif %} 
+        <a class="col-12" href="/avatar">New Profile Pic</a>
+    </div>
+    <div class="col-4">
+    <h2>Profile</h2>
     <div class="infoblock">
         <li class="userinfo">UserName: <b>{{user.username}}</b></li>
-        <li class="userinfo">Reputation: <b>{{user.reputation}}</b></li>
         <li class="userinfo">Email: <b>{{user.email}}</b></li>
-        <button class="updateButton">Update</button>
-    </div>
-    </div>
-
-    <div class="col-6"></div>
-    <div class="col-6"></div>
-
-    <div class="col-6" style="margin-top:15%"><h3>Top Post:</h3>
-        <div class="post">
-            {% for post in user.posthistory %}
-                <b>{{post.title}}</b>
-                <p class="post-content">{{post.content}}</p>
-            {% endfor %}
-        </div>
+        <li class="userinfo">Reputation: <b>{{user.reputation}}</b></li>
+        
+        <a href="/update"><button class="updateButton btn" style="color:black">Update</button></a>
         
     </div>
+    </div>
+
+    <div class="col-6"></div>
+    <div class="col-6"></div>
+    <div class="col-1"></div>
+
+    <div class="col-4" style="margin-top:1%"><h3>Posts:</h3>
+        
+            {% if user.posts %}
+
+                {% for post in user.posts %}
+                <div class="post">
+                    <b>{{post.title}}</b>
+                    <p class="post-content">{{post.content}}</p>
+                </div>
+                {% endfor %}
+            {% else %}
+            <div class="post">
+                <b>You haven't made any posts yet</b>
+            </div>
+            {% endif %}
+        
+        
+        
+    </div>
+    <div class="col-1"></div>
 </div>
 
 {% endblock %}

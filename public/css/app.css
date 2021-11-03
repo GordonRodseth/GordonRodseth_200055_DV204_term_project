@@ -1,40 +1,31 @@
 
 body{
     font-family: 'Roboto', sans-serif;
+    background-color: black;
+    color: #FFE902;
+    
+}
+
+button{
+    background-color: black;
+    border:none; 
+    color:white; 
+    font-size:x-large;
 }
 
 a{
-    color: black;
+    color: white;
 }
 
 a:hover{
-    font-weight: bold;
-    color:black;
+    color: white;
     text-decoration: none;
 }
 .navbar{
     background-color: #FFE902;
-    box-shadow:0px 5px 5px rgba(0, 0, 0, 0.1);
     margin-bottom: 2%;
 }
 
-#signUpDetail{
-    margin-top:5%;
-    width:100%;
-    font-size: small;
-    padding: 1%;
-    border:none;
-}
-
-#signUpButton{
-    margin-left:25%;
-    margin-right: 25%;
-    width:50%;
-    border:solid;
-    border-color: black;
-    border-width: 1px;
-    margin-top:10%;
-}
 .updateButton{
     margin-left:25%;
     margin-right: 25%;
@@ -46,55 +37,76 @@ a:hover{
     margin-top:5%;
     margin-bottom: 5%;
 }
-#signUpForm{
-    padding: 10%;
-    border-radius:15px;
-    background-color: #F2C94C;
-    box-shadow:0px 5px 5px rgba(0, 0, 0, 0.1);
+
+#button:hover{
+    cursor: pointer;
+}
+
+#registerbtn{
+    border-style: solid;
+    background-color: #FFE902;
+    color: black;
+    font-weight: bold;
+}
+.loginform{
+    background-color: black;
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    margin-top: 1.5%;
+    margin-bottom: 1.5%;
+    border-style: solid;
 }
 
 .post{
-    background-color: #F2C94C;
+    background-color: black;
     padding: 2%;
-    margin-top: 3%;
-    border-radius:15px;
+    padding-bottom:1%;
+    margin-top: 1.5%;
+    margin-bottom: 1.5%;
+    border-style: solid;
+    border-width:2px;
 }
 .post-content{
     background-color: #fdec2e;
     padding:2%;
     margin-top: 2%;
-    border-radius:5px;
-    box-shadow:2px 2px 2px inset rgba(0, 0, 0, 0.1);
+    border-width:1px;
+    color: black;
+    
 
 }
 .comments{
-    background-color: #fdec2e;
-    margin-left: 5%;
-    padding:2%;
-    margin-top: 2%;
-    border-radius:5px;
-    box-shadow:2px 2px 2px inset rgba(0, 0, 0, 0.1);
+    margin-bottom: 1%;
+    padding: 1%;
+    color: #fdec2e;
+    background-color: #00000023;
+    border: solid;
+    border-width:2px;
 }
 .reply{
-    background-color: #F2C94C;
+    background-color: #f2c84c23;
+    color: #fdec2e;
     padding: 1%;
     margin-left: 5%;
-    border-radius:5px;
-    box-shadow:2px 2px 2px inset rgba(0, 0, 0, 0.1);
+    border: solid;
+    border-width:1px
 }
 .infoblock{
-    background-color: #F2C94C;
+    background-color: black;
     padding: 1%;
     margin-top:3%;
-    border-radius:15px;
-    box-shadow:0px 5px 5px rgba(0, 0, 0, 0.1);
+    border: solid;
+    border-width: 2px;
 }
 .userinfo{
     margin:3%;
     padding:2%;
-    border-radius:5px;
-    background-color: #fdee43;
-    box-shadow:2px 2px 2px inset rgba(0, 0, 0, 0.1);
+    background-color: #fdec2e;
+    border: solid;
+    border-width: 2px;
+    color: black;
 }
 
 .profpic{
@@ -105,5 +117,108 @@ a:hover{
 }
 .makepost{
     width: 100px;
-    height:100px;
+    height:fit-content;
+    padding:4%;
+    align-items: center;
+}
+.makepost:hover{
+    cursor: pointer;
+}
+#chatbubble{
+    font-size:xx-large;
+    background-color: black;
+    color: white;
+    padding: 7px;
+    border-radius: 50%;
+    width: fit-content;
+}
+#chatbubble:hover{
+    background-color: #fdee43;
+    color: black;
+}
+
+#myprofile, #admin{
+    font-size: 40px;
+    color: rgba(0, 0, 0, 0.85);
+}
+#myprofile, #admin:hover{
+    font-size: 40px;
+    color: rgba(0, 0, 0);
+}
+.navbar-brand{
+    color: black;
+    font-size: 35px;
+}
+.navbar-brand:hover{
+    color: black;
+    font-weight: bolder;
+}
+#bee{
+    font-size: 65px;
+    color: rgba(0, 0, 0, 0.85);
+}
+body::-webkit-scrollbar {
+    display: none;
+  }
+
+#upvote,#downvote{
+    padding: 1px;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    margin:10%;
+
+}
+#upvote{
+    background-color: #fdee43;
+    color: black;
+    border: solid;
+    border-width: 2px;
+}
+#upvote:hover{
+    border-width:3px;
+}
+#downvote{
+    background-color: black;
+    color: #fdee43;
+    border: solid;
+    border-width: 2px;
+    border-color: #fdee43;
+}
+#votecount{
+    font-size: x-large;
+    font-weight: bold;
+}
+
+.avatar{
+    width: 50%;
+    height: fit-content;
+    border-radius: 50%;
+    border-style: solid;
+    margin-left:10%;
+    position: absolute;
+    bottom: 25%;
+    right:10%;
+}
+#ban,#unban{
+    float: right;
+}
+#ban{
+    color: red;
+}
+#unban{
+    color: rgb(14, 173, 14);
+}
+
+.user,.admin,.user-banned{
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    font-size: x-large;
+    padding: 1%;
+}
+
+.user-table,.admin-table,.banned-table{
+    border-style: solid;
+    font-size: x-large;
+    padding: 2%;
 }

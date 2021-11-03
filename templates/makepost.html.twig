@@ -1,12 +1,12 @@
 {% extends "base.html.twig" %}
 
-{% block title %}New Account{% endblock %}
+{% block title %}Form{% endblock %}
 
 {% block body %}
 <div class="row col-12">
     <div class="col-3"></div>
     <div class="col-6">
-        <h4 style="margin-top:15%;">Enter Your Details to Create a Free Account</h4>
+        <h3 style="color:white; margin-top:15%" >New Post</h3>
         {{ form_start(form, {'attr': {'novalidate':'novalidate'}}) }}
         {{ form_widget(form) }}
         {{ form_end(form) }}

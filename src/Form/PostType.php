@@ -10,9 +10,9 @@
         public function buildForm(FormBuilderInterface $builder, array $options)
         {
             $builder
-            ->add('title',TextType::class)
-            ->add('content',TextType::class)
-            ->add('submit',SubmitType::class, ['label'=>'Register']);
+            ->add('title',TextType::class,['label' => 'Post Title'])
+            ->add('content',TextType::class,['label' => 'Details'])
+            ->add('submit',SubmitType::class, ['label'=>'Post']);
             ;
 
         }

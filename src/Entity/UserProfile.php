@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Entity\App\Entity;
+namespace App\Entity;
 
 use App\Repository\UserProfileRepository;
 use Doctrine\Common\Collections\ArrayCollection;

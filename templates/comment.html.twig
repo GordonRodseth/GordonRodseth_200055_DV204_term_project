@@ -1,0 +1,63 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Form{% endblock %}
+
+{% block body %}
+<div class="row col-12">
+    
+    <div class="col-2">
+        {% if post.poster.profpic %}
+            <img class="avatar" src="../uploads/pics/{{post.poster.profpic.picture}}" alt="profilepicture">
+        {% endif %}
+        {% if not post.poster.profpic %}
+            <img class="avatar" src="../uploads/pics/user.png" alt="profilepicture">
+        {% endif %}
+    </div>
+    <div class="post row col-9" >
+        <h2 class="col-12" style="color:white">{{post.title}}</h2>
+         <br>
+        <p class="col-12">
+          <i>{{post.poster.username}}</i>
+        </p>
+        <div class="post-content col-12" style="margin-top:.5%">
+            <p>{{post.content}}</p>
+        </div>
+    </div>
+    <div class="col-1"></div>
+
+        <div class="col-2"></div>
+        <div class="row col-9" style="padding:0;margin-top:1%;">
+        <h4 style="color:white">Comments:</h4>
+            {% if parentcomment %}
+                <div class="comments col-12">
+                    <i><b>{{parentcomment.poster.username}}: </b></i>
+                    <p style="color:white">{{parentcomment.content}}</p>
+                    <div class="reply">
+
+                        {{ form_start(form, {'attr': {'novalidate':'novalidate', 'label':'Reply'}}) }}
+                        {{ form_widget(form) }}
+                        {{ form_end(form) }}
+                    </div>
+
+            
+                </div>
+            {% endif %}
+
+            {% if not parentcomment %}
+                <div class="comments col-12">
+                    <i><b></b></i>
+                
+                    {{ form_start(form, {'attr': {'novalidate':'novalidate', 'label':'Comment'}}) }}
+                    {{ form_widget(form) }}
+                    {{ form_end(form) }}
+            
+                </div>
+            {% endif %}
+
+        </div>
+
+
+    </div>
+    
+</div>
+{% endblock %}
