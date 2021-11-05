@@ -10,162 +10,109 @@ Explore the docs »
 View Demo · Report Bug · Request Feature
 
 ## Table of Contents
-About the Project
-Project Description
-Built With
-Getting Started
-Prerequisites
-How to install
-Features and Functionality
-Concept Process
-Ideation
-Wireframes
-User-flow
-Development Process
-Implementation Process
-Highlights
-Challenges
-Reviews and Testing
-Feedback from Reviews
-Unit Tests
-Future Implementation
-Final Outcome
-Mockups
-Video Demonstration
-Conclusion
-Roadmap
-Contributing
-License
-Contact
-Acknowledgements
-About the Project
-image1
+### About the Project
+### Project Description
+### Built With
+### Getting Started
+### Features and Functionality
+### Concept Process
+### Ideation
+### Wireframes
+### User-flow
+### Development Process
+### Implementation Process
+### Highlights
+### Challenges
+### Reviews and Testing
+### Feedback from Reviews
+### Unit Tests
+### Final Outcome
+### Mockups
 
-Project Description
-A nice introduction to this amazing project of mine.
 
-Built With
-Technology Name
-Technology Name
-Technology Name
-Getting Started
-The following instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+### Project Description
+The brief for this project was to build a forum based website which would facilitate questions, answers, upvotes, and downvotes.
 
-Prerequisites
-Ensure that you have the latest version of Software installed on your machine. The Plugin plugin will also be required.
+### Built With
+Symfony
+PHP
+jQuery
+HTML & CSS
 
-How to install
-Installation
-Here are a couple of ways to clone this repo:
+### Features and Functionality
+#### User Sign In & Sign Up
+Users of the site needed to be able to create their own accounts, sign in, sign out, and then edit their account details
 
-Software
-Android Studio -> File -> New -> From Version Control -> Git
-Enter https://github.com/username/projectname.git into the URL field and press the Clone button.
+#### Making/Viewing Posts
+Users need to be able to post their own questions to the database and view the posts of other users from the database
 
-Clone Repository
-Run the following in the command-line to clone the project:
+#### Commenting
+Users should be able to post replies to other users' posts and to other users' comments
 
-git clone https://github.com/username/projectname.git
-Open Software and select File | Open... from the menu. Select cloned directory and press Open button
+#### Upvoting/Downvoting/Reputation
+A post can be upvoted or downvoted. Each user has a "Reputation" statistic which is determined by how their posts are generally percieved.
 
-Install Dependencies
-Run the following in the command-line to install all the required dependencies:
+#### Banning Users
+Admins should have extra privileges over other users, allowing them to ban regular users. Banned users have restricted access to the site
 
-npm install
-Get a free API Key at https://example.com and enter it in the config.js file:
 
-const API_KEY = 'ENTER YOUR API';
-Features and Functionality
-image2
+### Concept Process
+Working with the idea of a forum, I was drawn to the idea of a hobbyist site where members of a certain hobby could share advice and questions. Looking into popular hobbies, I found beekeeping to be an interesting, niche, subject that could be visually interesting to implement.
 
-Feature 1
-Description of Feature
+### Ideation
+I put together a moodboard to serve as visual inspiration for my site
 
-image3
+(not sure how to insert an image into a README)
 
-Feature 2
-Description of Feature
+### Wireframes
+I drew up a series of wireframes to get the basic layout of the site mapped out. This gave me an idea on what elements need to be built
 
-image4
+(not sure how to insert an image into a README)
 
-Feature 3
-Description of Feature
+### User-flow
+The User Flow helped outline how seperate functions and features need to be linked together.
 
-image5
+(not sure how to insert an image into a README)
 
-Concept Process
-The Conceptual Process is the set of actions, activities and research that was done when starting this project.
+### Development Process
+First the necessary softwares to work with Symfony and Composer were installed.
+The seperate entities of User, Post, Comment, Upvotes, and Downvotes were created and given the necessary properties through Doctrine ORM commands.
+The Entity Relationships were set up. Posts were linked to Users, Comments, Upvotes, and Downvotes. Users were linked to Posts, Comments, Upvotes, and Downvotes. These relationships were set up through the Symfony framework and Doctrine ORM commands.
+The front end of the site was created through basic html and css.
+jQuery was used to some extent to link the back-end and the front-end
 
-Ideation
-image5
-image6
+### Implementation Process
+As discussed previously, Doctrine ORM commands were used for the basic set up of the code. This was used to access some useful Symfony templates which were used to define the Entities.
+Symfony's tools made it easy to manage the various properties of the entities. For example, each user has a username, an email, and a password, the details of which were managed through PHP code and then migrated up to the database.
+Symfony's tools were also used to manage the relationships between entities. Through this each Post was related to the User who posted it and to each Comment made under it which were similarly related to the User who made the Comment.
+Symfony hosts a range of tools that made it easy to manage form submission and user management. A large part of the front end to back end connections were facilitated by these tools
+The Upvoting/Downvoting system was managed through jQuery which called the Symfony code when the relevant buttons on the front end were interacted with
 
-Wireframes
-image7
+### Highlights
+Symfony provides a toolset with lots of interesting capabilities that were very fun to explore. The way that the framework allows programmers to implement functionality straight and calls to the database straight from the html makes a lot of tasks that could be headache inducing quite simple and straight forward to implement.
 
-User-flow
-image8
+### Challenges
+PHP can be very difficult to work with and very frustrating to debug. This caused a lot of time to be wasted in getting basic functions to work. The time that the framework saved when working as expected only slightly outmeasures that wasted when it doesnt.
 
-Development Process
-The Development Process is the technical implementations and functionality done in the frontend and backend of the application.
+### Reviews & Testing
+Peer Reviews were conducted by my fellow students and lecturer.
+While a lot of feedback reflected favourably on the functionality and relative usability of my site at the time of presenting, the front end designs and the branding recieved mixed to negative responses.
+A lot of work was done to attempt to make the front end more appealing in response to this.
 
-Implementation Process
-Made use of both functionality to implement a specific feature.
-MVC/MVVM design architecture implemented.
-Plugin for this.
-ETC.
-Highlights
-Sunshine.
-Rainbows.
-Challenges
-Bugs.
-Bugs.
-Reviews & Testing
-Feedback from Reviews
-Peer Reviews were conducted by my fellow students and lecturer. The following feedback I found useful:
+### Final Outcome
+I am proud to have created a site that is as functional and presentable as this is. There were some issues with my time management which caused the project to fall short of my in some areas. I would have liked for the UI to be a bit smoother than it turned out to be. But in the end I'm proud of the functionality that I have managed to achieve.
 
-Feedback one.
-Feedback two.
-Unit Tests
-Unit Tests were conducted to establish working functionality. Here are all the tests that were ran:
+### Mockups
+(not sure how to insert an image into a README)
 
-Test 1 of this functionality
-Test 2 of this functionality
-Future Implementation
-Future 1.
-Future 2.
-Final Outcome
-Mockups
-image9
-image10
+### Video Demonstration
+(not sure how to insert an image into a README)
 
-Video Demonstration
-To see a run through of the application, click below:
-
-View Demonstration
-
-Roadmap
-See the open issues for a list of proposed features (and known issues).
-
-Contributing
-Contributions are what makes the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are greatly appreciated.
-
-Fork the Project
-Create your Feature Branch (git checkout -b feature/AmazingFeature)
-Commit your Changes (git commit -m 'Add some AmazingFeature')
-Push to the Branch (git push origin feature/AmazingFeature)
-Open a Pull Request
-Authors
-Your Name & Surname - username
-License
-Distributed under the MIT License. See LICENSE for more information.\
 
 Contact
-Your Name & Surname - email@address - @instagram_handle
-Project Link - https://github.com/username/projectname
+Gordon Rodseth - 200055@virtualwindow.co.za
+
 Acknowledgements
-Resource Name
-Resource Name
-Resource Name
-Resource Name
-Resource Name
+Icons provided by Google Icons https://fonts.google.com/icons
+Fonts from Google Fonts https://fonts.google.com
+Example user profile pictures from Unsplash
